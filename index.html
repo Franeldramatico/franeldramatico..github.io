@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo conocí al amor de mi vida</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFE4E1;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            text-align: center;
+            color: #FF69B4;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        .category {
+            background-color: #FFC0CB;
+            border: 2px solid #FF69B4;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .category:hover {
+            background-color: #FF69B4;
+            color: white;
+        }
+        .content {
+            display: none;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .heart {
+            position: fixed;
+            z-index: -1;
+            animation: float 15s infinite ease-in-out, zigzag 30s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(-100%); }
+            50% { transform: translateY(100vh); }
+        }
+        @keyframes zigzag {
+            0%, 100% { transform: translateX(-50px); }
+            25% { transform: translateX(50px); }
+            50% { transform: translateX(-25px); }
+            75% { transform: translateX(25px); }
+        }
+        .explosion {
+            position: absolute;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cómo conocí al amor de mi vida</h1>
+        <div class="category" onclick="showContent(this, 'content1')">Cómo conocí al amor de mi vida</div>
+        <div id="content1" class="content">
+            <h2>¡Así conocí a Aletazo!</h2>
+            <p>Nos conocimos en enero. Estábamos aburridos y decidimos meternos a un 'Friendly'. Nos dimos la casualidad de conocernos, pero no comenzamos a hablar con la normalidad de siempre. Comenzamos a hablar oficialmente el 15 de marzo, y casualmente fue por un problema de amigos. Cosas de la vida, ¿no?</p>
+        </div>
+        <div class="category" onclick="showContent(this, 'content2')">Cosas que nos gustan</div>
+        <div id="content2" class="content">
+            <p>Nos encanta todo lo que hacemos juntos, pero sin duda uno de nuestros lazos más fuertes es nuestro amor por los videojuegos y nuestras aficiones compartidas. Desde Pokémon hasta The Legend of Zelda, siempre encontramos maneras de divertirnos y estar más cerca. Y en nuestro mundo lleno de fantasía, Gir siempre está presente, recordándonos lo mucho que nos queremos y lo divertidos que somos juntos. Cada cosa que compartimos hace nuestra relación única y especial.</p>
+        </div>
+        <div class="category" onclick="showContent(this, 'content3')">Nuestros pasatiempos</div>
+        <div id="content3" class="content">
+            <p>Nuestros hermosos pasatiempos ya son algo cotidiano para nosotros <3. Ejemplos serían: jugar Overwatch juntos, u otro juego en la Xbox como Goat Simulator 3. Siempre hacemos llamadas por WhatsApp todas las noches, sin duda una experiencia maravillosa. A veces dibujamos y siempre sale alguna idea que me encanta.</p>
+        </div>
+        <div class="category" onclick="showContent(this, 'content4')">Las cosas que amo de ella</div>
+        <div id="content4" class="content">
+            <p>Amo todo de ella, es la mujer perfecta, sin duda una chica inigualable. Es atenta, cariñosa y muy amorosa. Físicamente es demasiado bella, a veces me pregunto ¿cómo la enamoré? Tiene unos excelentes gustos y sabe respetar a su pareja. ¡Incluso su humor es genial!</p>
+        </div>
+        <div class="category" onclick="showContent(this, 'content5')">Nuestro mundo imaginario</div>
+        <div id="content5" class="content">
+            <p>Es increíble, ¿no? Siempre nos demostramos el amor mutuo. Me encanta nuestro mundo imaginario... y amor me refiero a los fanfics que hacemos, las historias ficticias de Aletazo y Flansito. Hasta hicimos una saga jaja. Definitivamente, este es mi año favorito, me encanta todo esto contigo, gracias por las historias compartidas, mi niñita hermosa.</p>
+        </div>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 5 + 10 + 's';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            heart.innerHTML = '❤️';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 15000);
+        }
+
+        setInterval(createHeart, 300);
+
+        function showContent(category, contentId) {
+            if (category.classList.contains('clicked')) return;
+            
+            category.classList.add('clicked');
+            const content = document.getElementById(contentId);
+            content.style.display = 'block';
+
+            for (let i = 0; i < 20; i++) {
+                const explosion = document.createElement('div');
+                explosion.classList.add('explosion');
+                explosion.innerHTML = '🌸';
+                explosion.style.left = Math.random() * 100 + '%';
+                explosion.style.top = Math.random() * 100 + '%';
+                explosion.style.fontSize = Math.random() * 20 + 10 + 'px';
+                explosion.style.animation = `explode ${Math.random() * 1 + 0.5}s forwards`;
+                content.appendChild(explosion);
+
+                setTimeout(() => {
+                    explosion.remove();
+                }, 1500);
+            }
+
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        document.body.style.minHeight = '200vh';
+    </script>
+</body>
+</html>
+<style>
+    .background-hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+    }
+    .heart {
+        position: absolute;
+        animation: fall linear infinite;
+    }
+    @keyframes fall {
+        to {
+            transform: translateY(100vh);
+        }
+    }
+</style>
+
+<div class="background-hearts" id="heartContainer"></div>
+
+<script>
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 5 + 10 + 's';
+        heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+        heart.innerHTML = '❤️';
+        document.getElementById('heartContainer').appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 15000);
+    }
+
+    setInterval(createHeart, 300);
+
+    function showContent(category, contentId) {
+        if (category.classList.contains('clicked')) return;
+        
+        category.classList.add('clicked');
+        const content = document.getElementById(contentId);
+        content.style.display = 'block';
+
+        for (let i = 0; i < 20; i++) {
+            const explosion = document.createElement('div');
+            explosion.classList.add('explosion');
+            explosion.innerHTML = '🌸';
+            explosion.style.left = Math.random() * 100 + '%';
+            explosion.style.top = Math.random() * 100 + '%';
+            explosion.style.fontSize = Math.random() * 20 + 10 + 'px';
+            explosion.style.animation = `explode ${Math.random() * 1 + 0.5}s forwards`;
+            content.appendChild(explosion);
+
+            setTimeout(() => {
+                explosion.remove();
+            }, 1500);
+        }
+
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    }
+
+    // Actualizar el contenido de la categoría "Cosas que nos gustan"
+    const cosasQueNosGustanContent = document.getElementById('cosas-que-nos-gustan');
+    if (cosasQueNosGustanContent) {
+        cosasQueNosGustanContent.innerHTML = `
+            <p>Nuestro amor es como un jardín floreciente, lleno de momentos preciosos y experiencias compartidas. Juntos, disfrutamos de largas caminatas bajo el cielo estrellado, risas contagiosas que iluminan nuestros días, y la calidez de abrazos que hablan más que mil palabras. Cada día es una nueva aventura, donde descubrimos la belleza en los pequeños detalles y celebramos la magia de estar juntos.</p>
+        `;
+    }
+
+    document.body.style.minHeight = '200vh';
+</script>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .category, .content {
+            width: 90%;
+            margin: 1em auto;
+        }
+
+        .explosion {
+            font-size: 1rem;
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+
+            .category, .content {
+                width: 95%;
+                margin: 0.5em auto;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .explosion {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<script>
+    // Variables para rastrear las categorías seleccionadas
+    let categoriasSeleccionadas = {
+        'nuestra-historia': false,
+        'momentos-especiales': false,
+        'cosas-que-nos-gustan': false,
+        'planes-futuros': false,
+        'mensajes-de-amor': false
+    };
+
+    // Función para verificar si todas las categorías han sido seleccionadas
+    function todasCategoriasSeleccionadas() {
+        return Object.values(categoriasSeleccionadas).every(valor => valor);
+    }
+
+    // Función para manejar el clic en una categoría
+    function manejarClicCategoria(categoria) {
+        categoriasSeleccionadas[categoria] = true;
+        if (todasCategoriasSeleccionadas()) {
+            document.getElementById('mensaje-cumpleanos').style.display = 'block';
+        }
+    }
+
+    // Agregar event listeners a las categorías
+    Object.keys(categoriasSeleccionadas).forEach(categoria => {
+        const elemento = document.getElementById(categoria);
+        if (elemento) {
+            elemento.addEventListener('click', () => manejarClicCategoria(categoria));
+        }
+    });
+
+    // Crear el mensaje de cumpleaños
+    const mensajeCumpleanos = document.createElement('div');
+    mensajeCumpleanos.id = 'mensaje-cumpleanos';
+    mensajeCumpleanos.innerHTML = '<h2>Feliz cumpleaños Aletazo ❤️</h2>';
+    mensajeCumpleanos.style.display = 'none';
+    mensajeCumpleanos.style.textAlign = 'center';
+    mensajeCumpleanos.style.cursor = 'pointer';
+    document.body.appendChild(mensajeCumpleanos);
+
+    // Crear la carta de cumpleaños
+    const cartaCumpleanos = document.createElement('div');
+    cartaCumpleanos.id = 'carta-cumpleanos';
+    cartaCumpleanos.style.display = 'none';
+    cartaCumpleanos.style.position = 'fixed';
+    cartaCumpleanos.style.top = '0';
+    cartaCumpleanos.style.left = '0';
+    cartaCumpleanos.style.width = '100%';
+    cartaCumpleanos.style.height = '100%';
+    cartaCumpleanos.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+    cartaCumpleanos.style.zIndex = '1000';
+    cartaCumpleanos.innerHTML = `
+        <div style="position: relative; width: 80%; max-width: 600px; margin: 50px auto; padding: 30px; background-color: #fff; border: 2px solid #ff69b4; border-radius: 15px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+            <button id="cerrar-carta" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer;">X</button>
+            <h2 style="text-align: center; font-family: 'Brush Script MT', cursive; color: #ff69b4;">Mi querida Aletazo,</h2>
+            <p style="font-family: 'Brush Script MT', cursive; font-size: 18px; line-height: 1.6;">
+                En este día tan especial, quiero expresarte todo el amor que siento por ti. Cada momento a tu lado es un regalo, y estoy agradecido por tenerte en mi vida. Que este nuevo año de vida esté lleno de alegría, amor y nuevas aventuras juntos.
+            </p>
+            <p style="font-family: 'Brush Script MT', cursive; font-size: 18px; line-height: 1.6;">
+                Te amo con todo mi corazón,
+            </p>
+            <p style="font-family: 'Brush Script MT', cursive; font-size: 18px; text-align: right;">Tu amor eterno</p>
+        </div>
+    `;
+    document.body.appendChild(cartaCumpleanos);
+
+    // Event listener para abrir la carta
+    mensajeCumpleanos.addEventListener('click', () => {
+        cartaCumpleanos.style.display = 'block';
+        cartaCumpleanos.style.animation = 'slideDown 0.5s ease-out';
+    });
+
+    // Event listener para cerrar la carta
+    document.getElementById('cerrar-carta').addEventListener('click', () => {
+        cartaCumpleanos.style.animation = 'slideUp 0.5s ease-out';
+        setTimeout(() => {
+            cartaCumpleanos.style.display = 'none';
+        }, 500);
+    });
+
+    // Eliminar la funcionalidad de scroll infinito
+    window.onscroll = null;
+    document.body.style.minHeight = 'auto';
+
+    // Estilos para las animaciones
+    const estilos = document.createElement('style');
+    estilos.textContent = `
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100%); }
+        }
+    `;
+    document.head.appendChild(estilos);
+// Solución definitiva para detener la carga infinita y agregar corazones estáticos
+document.addEventListener('DOMContentLoaded', () => {
+    // Eliminar cualquier evento de scroll previo
+    window.onscroll = null;
+    
+    // Establecer altura fija del documento
+    document.documentElement.style.height = '100%';
+    document.body.style.height = '100%';
+    document.body.style.overflowY = 'auto';
+    
+    // Limpiar cualquier intervalo o timeout existente
+    const highestTimeoutId = setTimeout(";");
+    for (let i = 0; i < highestTimeoutId; i++) {
+        clearTimeout(i);
+    }
+    
+    // Función para crear corazones decorativos de forma estática
+    const addStaticHearts = () => {
+        // Eliminar corazones existentes
+        const existingHearts = document.querySelectorAll('.heart');
+        existingHearts.forEach(heart => heart.remove());
+        
+        // Crear nuevos corazones estáticos con más variedad
+        const heartPositions = [
+            { top: '5%', left: '5%', size: '30px', opacity: '0.8' },
+            { top: '15%', left: '85%', size: '20px', opacity: '0.6' },
+            { top: '25%', left: '15%', size: '35px', opacity: '0.7' },
+            { top: '35%', left: '90%', size: '25px', opacity: '0.9' },
+            { top: '45%', left: '8%', size: '28px', opacity: '0.7' },
+            { top: '55%', left: '80%', size: '32px', opacity: '0.8' },
+            { top: '65%', left: '20%', size: '22px', opacity: '0.6' },
+            { top: '75%', left: '70%', size: '38px', opacity: '0.7' },
+            { top: '85%', left: '25%', size: '26px', opacity: '0.9' },
+            { top: '95%', left: '60%', size: '33px', opacity: '0.8' },
+            { top: '12%', left: '40%', size: '24px', opacity: '0.7' },
+            { top: '28%', left: '75%', size: '29px', opacity: '0.6' },
+            { top: '42%', left: '30%', size: '36px', opacity: '0.8' },
+            { top: '58%', left: '45%', size: '27px', opacity: '0.7' },
+            { top: '72%', left: '92%', size: '31px', opacity: '0.9' },
+            { top: '88%', left: '12%', size: '34px', opacity: '0.6' },
+            { top: '18%', left: '55%', size: '23px', opacity: '0.8' },
+            { top: '32%', left: '3%', size: '28px', opacity: '0.7' },
+            { top: '48%', left: '65%', size: '37px', opacity: '0.8' },
+            { top: '62%', left: '35%', size: '25px', opacity: '0.6' }
+        ];
+        
+        heartPositions.forEach(position => {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.top = position.top;
+            heart.style.left = position.left;
+            heart.style.fontSize = position.size;
+            heart.style.opacity = position.opacity;
+            heart.style.zIndex = '-1';
+            heart.style.pointerEvents = 'none';
+            document.body.appendChild(heart);
+        });
+    };
+    
+    // Agregar estilos para los corazones
+    const heartStyles = document.createElement('style');
+    heartStyles.textContent = `
+        .heart {
+            transition: opacity 0.3s ease;
+            filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.5));
+            transform-origin: center;
+        }
+        .heart:hover {
+            opacity: 1 !important;
+            filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.8));
+        }
+        .container {
+            min-height: 100vh;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            overflow: visible;
+        }
+    `;
+    document.head.appendChild(heartStyles);
+    
+    // Inicializar corazones
+    addStaticHearts();
+    
+    // Asegurar que el contenedor principal tenga las dimensiones correctas
+    const mainContainer = document.querySelector('.container');
+    if (mainContainer) {
+        mainContainer.style.height = 'auto';
+        mainContainer.style.minHeight = '100vh';
+        mainContainer.style.maxHeight = 'none';
+    }
+});
+
+// Agregar margen inferior adicional a los botones de categoría
+const categoryStyles = document.createElement('style');
+categoryStyles.textContent = `
+    .category {
+        margin-bottom: 30px !important; /* Aumentamos el margen inferior */
+        padding: 15px !important; /* Un poco más de padding para mejor aspecto */
+        box-shadow: 0 2px 5px rgba(255, 105, 180, 0.2); /* Sombra suave */
+    }
+`;
+document.head.appendChild(categoryStyles);
+// Cambiar a tema gótico aesthetic
+const gothicStyles = document.createElement('style');
+gothicStyles.textContent = `
+    body {
+        background: linear-gradient(45deg, #0d0d0d, #1a0f1f, #2d1a2d);
+        color: #d8c5d8;
+        position: relative;
+    }
+    
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjMzAyMDMwIj48L3JlY3Q+Cjwvc3ZnPg==');
+        opacity: 0.1;
+        z-index: -1;
+    }
+    
+    .container {
+        background: linear-gradient(135deg, rgba(20, 12, 20, 0.9), rgba(45, 26, 45, 0.9));
+        border: 1px solid #4a2b4a;
+        box-shadow: 0 0 30px rgba(128, 0, 128, 0.2),
+                    inset 0 0 15px rgba(76, 0, 76, 0.3);
+        backdrop-filter: blur(5px);
+    }
+    
+    h1 {
+        color: #c27ec2;
+        text-shadow: 0 0 10px #800080,
+                     0 0 20px #4a004a,
+                     0 0 30px #2d002d;
+        font-family: 'Georgia', serif;
+        letter-spacing: 3px;
+    }
+    
+    .category {
+        background: linear-gradient(45deg, #2d1a2d, #3d2a3d);
+        border: 2px solid #663366;
+        color: #e6d0e6;
+        box-shadow: 0 4px 15px rgba(102, 51, 102, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .category::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(102, 51, 102, 0.1) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .category:hover::before {
+        opacity: 1;
+    }
+    
+    .category:hover {
+        background: linear-gradient(45deg, #4a2b4a, #663366);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 51, 102, 0.4);
+    }
+    
+    .content {
+        background: linear-gradient(135deg, rgba(30, 18, 30, 0.95), rgba(45, 26, 45, 0.95));
+        color: #e6d0e6;
+        border: 1px solid #663366;
+        box-shadow: inset 0 0 20px rgba(102, 51, 102, 0.3);
+    }
+    
+    .heart {
+        filter: hue-rotate(280deg) brightness(0.7) saturate(1.2) !important;
+        mix-blend-mode: screen;
+    }
+    
+    .heart:hover {
+        filter: hue-rotate(280deg) brightness(1.2) saturate(1.5) !important;
+        animation: pulseGlow 1.5s infinite ease-in-out !important;
+    }
+    
+    @keyframes pulseGlow {
+        0%, 100% { filter: hue-rotate(280deg) brightness(1.2) saturate(1.5) drop-shadow(0 0 5px #800080); }
+        50% { filter: hue-rotate(280deg) brightness(1.5) saturate(2) drop-shadow(0 0 15px #800080); }
+    }
+    
+    /* Añadir decoraciones góticas */
+    .container::before {
+        content: '✧';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: #663366;
+        font-size: 24px;
+        opacity: 0.5;
+    }
+    
+    .container::after {
+        content: '✧';
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        color: #663366;
+        font-size: 24px;
+        opacity: 0.5;
+    }
+`;
+document.head.appendChild(gothicStyles);
+
+// Agregar elementos decorativos adicionales
+const addGothicDecorations = () => {
+    const decorations = document.createElement('div');
+    decorations.innerHTML = `
+        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1;">
+            <svg width="100%" height="100%" style="opacity: 0.03;">
+                <pattern id="gothic-pattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+                    <path d="M25,0 L50,25 L25,50 L0,25 Z" fill="none" stroke="#663366" stroke-width="1"/>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#gothic-pattern)"/>
+            </svg>
+        </div>
+    `;
+    document.body.appendChild(decorations);
+};
+
+addGothicDecorations();
+
+// Ah, entiendo. Vamos a modificar el efecto cuando se hace clic en los botones
+// para que sea más acorde con el estilo gótico de la página
+
+function showContent(element, contentId) {
+    const content = document.getElementById(contentId);
+    if (content) {
+        // Remover cualquier efecto de flores existente
+        const existingEffects = document.querySelectorAll('.gothic-effect');
+        existingEffects.forEach(effect => effect.remove());
+
+        // Si el contenido está oculto, mostrarlo con efectos góticos
+        if (content.style.display === 'none' || content.style.display === '') {
+            // Crear efecto de aparición gótico
+            const gothicEffect = document.createElement('div');
+            gothicEffect.className = 'gothic-effect';
+            gothicEffect.innerHTML = '✧';
+            gothicEffect.style.cssText = `
+                position: absolute;
+                color: #663366;
+                font-size: 24px;
+                opacity: 0;
+                pointer-events: none;
+                animation: gothicAppear 1s ease-out;
+            `;
+            
+            // Añadir múltiples símbolos góticos alrededor del contenido
+            for (let i = 0; i < 4; i++) {
+                const symbol = gothicEffect.cloneNode(true);
+                symbol.style.left = `${25 * i}%`;
+                symbol.style.top = `${element.offsetTop - 20}px`;
+                document.body.appendChild(symbol);
+            }
+
+            content.style.display = 'block';
+            content.style.opacity = '0';
+            content.style.animation = 'gothicFadeIn 0.8s ease-in-out forwards';
+        } else {
+            content.style.animation = 'gothicFadeOut 0.8s ease-in-out forwards';
+            setTimeout(() => {
+                content.style.display = 'none';
+            }, 800);
+        }
+    }
+}
+
+// Añadir los nuevos estilos para las animaciones góticas
+const gothicAnimations = document.createElement('style');
+gothicAnimations.textContent = `
+    @keyframes gothicAppear {
+        0% { 
+            opacity: 0;
+            transform: scale(0) rotate(0deg);
+        }
+        50% {
+            opacity: 0.7;
+            transform: scale(1.2) rotate(180deg);
+        }
+        100% {
+            opacity: 0;
+            transform: scale(1.5) rotate(360deg);
+        }
+    }
+
+    @keyframes gothicFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes gothicFadeOut {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+    }
+`;
+document.head.appendChild(gothicAnimations);
+// Control de límite de murciélagos activos
+let murcielagosActivos = 0;
+const LIMITE_MURCIELAGOS = 30;
+
+// Función para crear murciélagos
+function crearMurcielagos(evento) {
+    // Verificar si ya hay demasiados murciélagos
+    if (murcielagosActivos >= LIMITE_MURCIELAGOS) {
+        return;
+    }
+
+    const numMurcielagos = Math.min(10, LIMITE_MURCIELAGOS - murcielagosActivos);
+    const posicionClick = {
+        x: evento.clientX,
+        y: evento.clientY
+    };
+
+    for (let i = 0; i < numMurcielagos; i++) {
+        const murcielago = document.createElement('div');
+        murcielago.innerHTML = '🦇';
+        murcielago.className = 'murcielago';
+        murcielago.style.position = 'fixed';
+        murcielago.style.left = posicionClick.x + 'px';
+        murcielago.style.top = posicionClick.y + 'px';
+        murcielago.style.fontSize = Math.random() * 20 + 20 + 'px';
+        murcielago.style.pointerEvents = 'none';
+        murcielago.style.zIndex = '9999';
+        
+        const angulo = (Math.random() * 360) * (Math.PI / 180);
+        const velocidad = Math.random() * 15 + 5;
+        const dx = Math.cos(angulo) * velocidad;
+        const dy = Math.sin(angulo) * velocidad;
+        
+        document.body.appendChild(murcielago);
+        murcielagosActivos++;
+        
+        let posX = posicionClick.x;
+        let posY = posicionClick.y;
+        let rotacion = 0;
+        
+        const animar = () => {
+            posX += dx;
+            posY += dy;
+            rotacion += 10;
+            
+            murcielago.style.left = posX + 'px';
+            murcielago.style.top = posY + 'px';
+            murcielago.style.transform = `rotate(${rotacion}deg) scale(${1 - posY/window.innerHeight * 0.5})`;
+            murcielago.style.opacity = 1 - posY/window.innerHeight;
+            
+            if (posY < -100 || posY > window.innerHeight + 100 || 
+                posX < -100 || posX > window.innerWidth + 100) {
+                murcielago.remove();
+                murcielagosActivos--;
+            } else {
+                requestAnimationFrame(animar);
+            }
+        };
+        
+        requestAnimationFrame(animar);
+    }
+}
+
+// Agregar estilos para los murciélagos
+const batStyles = document.createElement('style');
+batStyles.textContent = `
+    .murcielago {
+        transition: transform 0.1s ease;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+    }
+    
+    .category {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+`;
+document.head.appendChild(batStyles);
+
+// Sistema de enfriamiento para los clicks
+let ultimoClick = 0;
+const TIEMPO_ESPERA = 500; // 500ms entre clicks
+
+// Agregar el evento a los elementos con clase 'category'
+document.querySelectorAll('.category').forEach(elemento => {
+    elemento.addEventListener('click', (e) => {
+        const ahora = Date.now();
+        if (ahora - ultimoClick >= TIEMPO_ESPERA) {
+            crearMurcielagos(e);
+            ultimoClick = ahora;
+        }
+    });
+});
+// Corregir el fondo dividido
+const fixBackgroundStyles = document.createElement('style');
+fixBackgroundStyles.textContent = `
+    body {
+        background: #1a0f1f !important; /* Color morado oscuro sólido */
+        background-image: none !important; /* Eliminar cualquier imagen de fondo */
+        background-gradient: none !important; /* Eliminar cualquier gradiente */
+    }
+    
+    /* Asegurar que el contenedor principal tenga fondo transparente */
+    .container {
+        background: linear-gradient(135deg, rgba(20, 12, 20, 0.9), rgba(45, 26, 45, 0.9)) !important;
+    }
+`;
+document.head.appendChild(fixBackgroundStyles);
+
+// Nota: Como no podemos generar archivos de audio directamente,
+// omitiremos la funcionalidad de audio para evitar errores.
+// Si en el futuro se desea agregar audio, se necesitarán archivos
+// de audio válidos alojados en un servidor.
+
+
+console.log('Funcionalidad de audio omitida - se requieren archivos de audio válidos');
+
+
+
+// Agregar silueta oculta del vampiro
+const vampiroStyles = document.createElement('style');
+vampiroStyles.textContent = `
+    .vampiro-oculto {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 80px;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 80"><path d="M25,0 C15,0 10,10 10,20 C10,35 25,45 25,80 C25,45 40,35 40,20 C40,10 35,0 25,0 Z" fill="%23331a33" opacity="0.1"/></svg>');
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        transition: opacity 0.3s;
+        z-index: 1000;
+    }
+
+    .vampiro-oculto:hover {
+        opacity: 0.3;
+    }
+
+    .mensaje-vampiro {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #2d1a2d, #4a2b4a);
+        padding: 20px;
+        border: 2px solid #663366;
+        border-radius: 10px;
+        color: #e6d0e6;
+        font-family: 'Georgia', serif;
+        box-shadow: 0 0 20px rgba(102, 51, 102, 0.5);
+        display: none;
+        z-index: 1001;
+        animation: apareceVampiro 0.5s ease-out;
+    }
+
+    @keyframes apareceVampiro {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+`;
+document.head.appendChild(vampiroStyles);
+
+// Crear y añadir la silueta del vampiro
+const vampiro = document.createElement('div');
+vampiro.className = 'vampiro-oculto';
+document.body.appendChild(vampiro);
+
+
+const mensajeVampiro = document.createElement('div');
+mensajeVampiro.className = 'mensaje-vampiro';
+mensajeVampiro.innerHTML = '¡Encontraste al vampiro :3!<br>¡Ahora te comeré carajo!';
+document.body.appendChild(mensajeVampiro);
+
+
+vampiro.addEventListener('click', () => {
+    mensajeVampiro.style.display = 'block';
+    setTimeout(() => {
+        mensajeVampiro.style.display = 'none';
+    }, 3000);
+});
+
+
+document.addEventListener('keydown', function(event) {
+    // Detectar Ctrl + S (Windows) o Cmd + S (Mac)
+    if ((event.ctrlKey || event.metaKey) && event.key === 's') {
+        event.preventDefault(); // Prevenir el comportamiento predeterminado
+        alert('Para guardar este archivo:\n\n1. Presiona Ctrl + S (Windows) o Cmd + S (Mac)\n2. Selecciona la ubicación donde deseas guardarlo\n3. Dale un nombre al archivo con extensión .html\n4. Haz clic en "Guardar"');
+    }
+});
+
+</script>
+
